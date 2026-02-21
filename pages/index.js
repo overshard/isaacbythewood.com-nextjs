@@ -8,6 +8,7 @@ import styles from "@styles/pages/index.module.css";
 const Index = () => {
   const words = ["Developer", "SysAdmin", "DevOps", "Consultant"];
   const [currentWords, setCurrentWord] = useState([words[0]]);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const currentWordsRef = useRef(currentWords);
   currentWordsRef.current = currentWords;
   const wordRefs = useRef(new Map());
@@ -39,6 +40,7 @@ const Index = () => {
           priority={true}
           fill
           style={{ objectFit: "cover", objectPosition: "center" }}
+          onLoad={() => setImageLoaded(true)}
         />
       </div>
       <TransitionGroup component="div" className={styles.words}>
@@ -68,11 +70,11 @@ const Index = () => {
           );
         })}
       </TransitionGroup>
-      <h1 className={styles.description}>
+      <h1 className={styles.description} style={{ animationPlayState: imageLoaded ? "running" : "paused" }}>
         Senior Solutions Architect located in Elkin, NC
       </h1>
-      <h2 className={styles.name}>Isaac</h2>
-      <h2 className={styles.name} style={{ animationDelay: "100ms" }}>
+      <h2 className={styles.name} style={{ animationPlayState: imageLoaded ? "running" : "paused" }}>Isaac</h2>
+      <h2 className={styles.name} style={{ animationDelay: "100ms", animationPlayState: imageLoaded ? "running" : "paused" }}>
         Bythewood
       </h2>
     </Page>

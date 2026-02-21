@@ -90,6 +90,7 @@
   animation-name: fadeStart;
   animation-duration: 1500ms;
   animation-fill-mode: forwards;
+  animation-play-state: paused;
   position: relative;
   z-index: 20;
 }
@@ -124,6 +125,7 @@
   animation-name: slideStart;
   animation-duration: 750ms;
   animation-fill-mode: forwards;
+  animation-play-state: paused;
   position: relative;
   z-index: 20;
 }
