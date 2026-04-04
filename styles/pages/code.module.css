@@ -16,6 +16,17 @@
   }
 }
 
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .background {
   position: absolute;
   top: 0;
@@ -46,7 +57,7 @@
 .paragraph {
   font-size: 1.5em;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-weight: 300;
   color: black;
 }
@@ -89,12 +100,14 @@
   width: 100%;
   flex-wrap: wrap;
   gap: 20px;
+  padding-bottom: 60px;
 }
 
 .project {
-  width: calc(50% - 20px);
+  width: calc(50% - 10px);
   display: flex;
   flex-direction: column;
+  animation: cardEnter 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @media (max-width: 767.98px) {
@@ -105,27 +118,61 @@
 
 .projectHeading {
   font-weight: 700;
-  margin-top: 60px;
-  margin-bottom: 20px;
+  margin-top: 40px;
+  margin-bottom: 8px;
   font-size: 2em;
   color: black;
 }
 
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.75em;
+  padding: 2px 8px;
+  background-color: var(--color-blue);
+  border-radius: var(--radius-2);
+  color: white;
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 .projectParagraph {
-  font-size: 1.5em;
+  font-size: 1.3em;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   font-weight: 300;
   color: black;
   flex-grow: 1;
+  line-height: 1.5;
+}
+
+.projectCommit {
+  font-family: monospace;
+  background: var(--color-primary);
+  color: #00ff00;
+  padding: 16px;
+  overflow-x: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  font-size: 0.85em;
+  line-height: 1.6;
+  border-radius: var(--radius-2);
+  margin-top: 0;
+  margin-bottom: 16px;
 }
 
 .projectButton {
-  padding: 10px 15px;
-  font-size: 1.2em;
+  padding: 8px 12px;
+  font-size: 0.9em;
   text-decoration: none;
   background-color: black;
-  margin-bottom: 20px;
   font-weight: 700;
   text-transform: uppercase;
   display: inline-flex;
@@ -141,8 +188,9 @@
   transform: scale(1);
   transition-duration: 250ms;
   transition-property: transform;
-  width: 125px;
+  width: 120px;
   text-align: center;
+  border-radius: var(--radius-2);
 }
 
 .projectButton svg {
@@ -151,14 +199,4 @@
 
 .projectButton:hover {
   transform: scale(1.2);
-}
-
-.projectCommit {
-  font-family: monospace;
-  background: black;
-  color: #00ff00;
-  padding: 20px;
-  overflow-x: hidden;
-  max-width: 100%;
-  text-overflow: ellipsis;
 }

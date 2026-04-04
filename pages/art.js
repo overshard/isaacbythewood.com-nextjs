@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import styles from "@styles/pages/art.module.css";
 import Image from "next/image";
 
 import Page from "../components/page";
 import Constellations from "../components/constellations";
 import RetroStars from "../components/retrostars";
-import ParticleFlow from "../components/particleflow";
 
 const Art = () => {
   const [lightboxImage, setLightboxImage] = useState(null);
   const [lightboxLoaded, setLightboxLoaded] = useState(false);
   const [activeArt, setActiveArt] = useState("constellations");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const openLightbox = (image) => {
     setLightboxImage(image);
@@ -33,8 +38,11 @@ const Art = () => {
       <div className={styles.background} />
       <h1 className={styles.heading}>Acrylic Pours</h1>
       <p className={styles.paragraph}>
-        A bit more traditional than my usual art, acrylics mixed with water,
-        glue, and silicone on canvas and hit with a heat gun.
+        A bit more traditional than my usual art. Each piece starts as a mix of
+        acrylic paint, water, glue, and silicone oil poured onto canvas, then
+        manipulated with a heat gun to bring out cells and organic patterns. No
+        two pours come out the same and the process is as much about letting go
+        of control as it is about technique.
       </p>
       <div className={styles.artGrid}>
         <div
@@ -177,16 +185,19 @@ const Art = () => {
       </div>
       <h1 className={styles.heading}>Emergent Generative Art</h1>
       <p className={styles.paragraph}>
-        Autonomously generated entities that are observed to have qualities in a
-        group that they do not have on their own.
+        Code as a creative medium. These pieces are built entirely in JavaScript
+        on HTML canvas, each one a small system of simple rules that produces
+        complex, unpredictable behavior. The art emerges from the interaction of
+        autonomous entities rather than being explicitly drawn.
       </p>
       <h2 className={styles.subheading}>
         <span>000</span> Constellations
       </h2>
       <p className={styles.paragraph}>
-        Moving stars, circles, on a canvas that attach to nearby stars, with a
-        line, to generate constellations. Line opacity is based on star
-        distance.
+        Drifting points on a dark canvas that form connections with their nearest
+        neighbors. As stars wander closer together lines appear between them,
+        brighter the nearer they get, building and dissolving constellations
+        that never repeat.
       </p>
       <div className={styles.artContainer}>
         <Constellations
@@ -212,8 +223,9 @@ const Art = () => {
         <span>001</span> Retro Stars
       </h2>
       <p className={styles.paragraph}>
-        Multiple parallax planes of stars that shift based on cursor position.
-        Inspired by the retro art style of Celeste.
+        Layered star fields at different depths that drift in response to your
+        cursor, creating a parallax effect. Inspired by the pixel art aesthetic
+        of Celeste and the feeling of staring into a sky that moves with you.
       </p>
       <div className={styles.artContainer}>
         <RetroStars
@@ -235,44 +247,20 @@ const Art = () => {
       >
         See the Code
       </a>
-      <h2 className={styles.subheading}>
-        <span>002</span> Particle Flow
-      </h2>
-      <p className={styles.paragraph}>
-        Colorful particles flowing through an invisible force field, creating
-        organic, flowing patterns with trailing effects. Each particle follows
-        the field while leaving a colorful trail that slowly fades.
-      </p>
-      <div className={styles.artContainer}>
-        <ParticleFlow
-          options={{ numParticles: 80, isActive: activeArt === "particleflow" }}
-        />
-        <button
-          className={styles.playButton}
-          onClick={() => handleArtToggle("particleflow")}
-          data-active={activeArt === "particleflow"}
-        >
-          {activeArt === "particleflow" ? "⏸" : "▶"}
-        </button>
-      </div>
-      <a
-        className={styles.artItemButton}
-        href="https://github.com/overshard/isaacbythewood.com/blob/master/components/particleflow.js"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        See the Code
-      </a>
-      {lightboxImage !== null && (
+      {mounted && lightboxImage !== null && createPortal(
         <div className={styles.lightboxOverlay} onClick={() => closeLightbox()}>
-          <div
-            className={
-              styles.lightboxLoading + (lightboxLoaded ? " " + styles.hide : "")
-            }
+          <span
+            className={styles.lightboxImageWrapper}
+            onClick={(e) => e.stopPropagation()}
           >
-            Loading...
-          </div>
-          <span className={styles.lightboxImageWrapper}>
+            <div
+              className={
+                styles.lightboxLoading +
+                (lightboxLoaded ? " " + styles.hide : "")
+              }
+            >
+              Loading...
+            </div>
             <Image
               className={
                 styles.lightboxImage + (lightboxLoaded ? " " + styles.show : "")
@@ -284,8 +272,15 @@ const Art = () => {
               style={{ objectFit: "contain" }}
               onLoad={() => setLightboxLoaded(true)}
             />
+            <button
+              className={styles.lightboxClose}
+              onClick={() => closeLightbox()}
+            >
+              ✕
+            </button>
           </span>
-        </div>
+        </div>,
+        document.body
       )}
     </Page>
   );

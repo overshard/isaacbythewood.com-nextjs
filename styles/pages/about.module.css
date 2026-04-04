@@ -53,6 +53,7 @@
   top: 0;
   bottom: 0;
   left: 60px;
+  right: 0;
   opacity: 0.05;
   font-size: 5vh;
   line-height: 11vh;
@@ -73,6 +74,8 @@
 
 .word {
   margin: 0;
+  position: absolute;
+  left: 0;
 }
 
 .wordText {
@@ -98,6 +101,7 @@
 .wordEnterActive > .wordText {
   animation-name: quickFadeIn;
   animation-duration: 1000ms;
+  animation-fill-mode: forwards;
 }
 
 .wordAppearActive > .wordText::before,
@@ -126,7 +130,6 @@
 .paragraph {
   font-size: 1.8em;
   font-weight: 300;
-  color: black;
   position: relative;
   color: rgba(0, 0, 0, 0);
   animation-name: fadeIn;
@@ -173,7 +176,9 @@
 }
 
 .resume {
-  display: block;
+  display: flex;
+  align-items: center;
+  width: fit-content;
   text-decoration: none;
   margin-top: 20px;
   font-weight: 700;

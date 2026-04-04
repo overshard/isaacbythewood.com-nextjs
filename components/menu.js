@@ -138,6 +138,7 @@ const Menu = () => {
                   alt="#006 Molten Copper"
                   loading="lazy"
                   fill
+                  sizes="40vw"
                   style={{ objectFit: "cover", objectPosition: "center" }}
                 />
               </div>

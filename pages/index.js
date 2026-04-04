@@ -6,7 +6,7 @@ import Page from "../components/page";
 import styles from "@styles/pages/index.module.css";
 
 const Index = () => {
-  const words = ["Developer", "SysAdmin", "DevOps", "Consultant"];
+  const words = ["AI Agents", "Automation", "DevOps", "Architecture"];
   const [currentWords, setCurrentWord] = useState([words[0]]);
   const [imageLoaded, setImageLoaded] = useState(false);
   const currentWordsRef = useRef(currentWords);
@@ -30,8 +30,10 @@ const Index = () => {
     };
   }, []);
 
+  const playState = imageLoaded ? "running" : "paused";
+
   return (
-    <Page title="Senior Solutions Architect located in Elkin, NC">
+    <Page title="Senior Solutions Architect at Craftmaster Furniture">
       <div className={styles.imageWrapper}>
         <Image
           src="/static/images/art/acrylic-pours/005.webp"
@@ -40,7 +42,10 @@ const Index = () => {
           priority={true}
           fill
           style={{ objectFit: "cover", objectPosition: "center" }}
-          onLoad={() => setImageLoaded(true)}
+          onLoad={() => {
+            setImageLoaded(true);
+            window.dispatchEvent(new Event("loaderReady"));
+          }}
         />
       </div>
       <TransitionGroup component="div" className={styles.words}>
@@ -70,13 +75,17 @@ const Index = () => {
           );
         })}
       </TransitionGroup>
-      <h1 className={styles.description} style={{ animationPlayState: imageLoaded ? "running" : "paused" }}>
-        Senior Solutions Architect located in Elkin, NC
-      </h1>
-      <h2 className={styles.name} style={{ animationPlayState: imageLoaded ? "running" : "paused" }}>Isaac</h2>
-      <h2 className={styles.name} style={{ animationDelay: "100ms", animationPlayState: imageLoaded ? "running" : "paused" }}>
-        Bythewood
-      </h2>
+      <div className={styles.hero} style={{ animationPlayState: playState }}>
+        <h1 className={styles.name}>
+          <span className={styles.firstName}>Isaac</span>
+          <span className={styles.lastName}>Bythewood</span>
+        </h1>
+        <div className={styles.role}>
+          <span className={styles.roleTitle}>Senior Solutions Architect</span>
+          <span className={styles.roleAt}>at</span>
+          <span className={styles.roleCompany}>Craftmaster Furniture</span>
+        </div>
+      </div>
     </Page>
   );
 };

@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import styles from "@styles/components/loader.module.css";
 
 const Loader = () => {
+  const router = useRouter();
+  const [ready, setReady] = useState(router.pathname !== "/");
+
+  useEffect(() => {
+    const handler = () => setReady(true);
+    window.addEventListener("loaderReady", handler);
+    return () => window.removeEventListener("loaderReady", handler);
+  }, []);
+
   return (
     <>
       <div className={styles.grid}>
@@ -16,6 +26,7 @@ const Loader = () => {
                 style={{
                   gridColumn: column,
                   ["--delay"]: `${column * 100}ms`,
+                  ["--play-state"]: ready ? "running" : "paused",
                 }}
               />
             );

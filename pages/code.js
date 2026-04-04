@@ -18,345 +18,150 @@ const GitHubIcon = () => {
   );
 };
 
+const PROJECTS = [
+  {
+    name: "Taproot",
+    slug: "taproot",
+    description:
+      "Dotfiles, containers, and the configs that make a machine mine.",
+    tech: ["Docker", "Shell"],
+  },
+  {
+    name: "darkfurrow.com",
+    slug: "darkfurrow.com",
+    description:
+      "A living almanac of seasons, soil, and the quiet knowledge that used to be common.",
+    tech: ["Python", "Flask"],
+  },
+  {
+    name: "Analytics",
+    slug: "analytics",
+    description:
+      "A self-hostable analytics service with a straightforward API to track events from any source.",
+    tech: ["Python", "Django", "API"],
+  },
+  {
+    name: "Status",
+    slug: "status",
+    description: "A self-hosted status monitoring service.",
+    tech: ["Python", "Django"],
+  },
+  {
+    name: "Blog",
+    slug: "blog",
+    description:
+      "A self-hostable blog built on Wagtail with code blocks, syntax highlighting, live search, and a clean customizable UI.",
+    tech: ["Python", "Wagtail"],
+  },
+  {
+    name: "Timelite",
+    slug: "timelite",
+    description:
+      "A simple time tracking progressive web app. Uses local storage and service workers to remain accessible offline.",
+    tech: ["JavaScript", "PWA"],
+  },
+  {
+    name: "isaacbythewood.com",
+    slug: "isaacbythewood.com",
+    description: "The personal website you are looking at right now.",
+    tech: ["Next.js", "React", "CSS"],
+  },
+];
+
 const Code = ({ commits }) => {
   return (
     <Page title="Code" description="Some of my most recent coding projects.">
       <div className={styles.background} />
       <h1 className={styles.heading}>Code</h1>
       <p className={styles.paragraph}>
-        A probably not entirely up-to-date list of my current side projects...
-        There is plenty more to see on{" "}
+        Outside of work I build self-hosted tools, personal websites, and
+        whatever else catches my interest. Side projects are where I experiment
+        with new technology and stay sharp since at work I stick to stable,
+        mature frameworks. There is plenty more to see on{" "}
         <a
           href="https://github.com/overshard"
           rel="noopener noreferrer"
           target="_blank"
         >
           my GitHub account
-        </a>{" "}
-        and generally around the internet if you are interested.
+        </a>
+        .
       </p>
       <div className={styles.projects}>
-        <div className={styles.project}>
-          <h1 className={styles.projectHeading}>Analytics</h1>
-          <p className={styles.projectParagraph}>
-            A self-hostable analytics service with a straightforward API to
-            track events from any source.
-          </p>
-          <pre className={styles.projectCommit}>
-            {JSON.stringify(commits.analytics.data, null, 2)}
-          </pre>
-          <a
-            className={styles.projectButton}
-            href="https://www.github.com/overshard/analytics"
-            rel="noopener noreferrer"
-            target="_blank"
+        {PROJECTS.map((project, index) => (
+          <div
+            key={project.slug}
+            className={styles.project}
+            style={{ animationDelay: `${index * 100}ms` }}
           >
-            <GitHubIcon />
-            GitHub
-          </a>
-        </div>
-        <div className={styles.project}>
-          <h1 className={styles.projectHeading}>Status</h1>
-          <p className={styles.projectParagraph}>
-            A self-hosted status monitoring service.
-          </p>
-          <pre className={styles.projectCommit}>
-            {JSON.stringify(commits.status.data, null, 2)}
-          </pre>
-          <a
-            className={styles.projectButton}
-            href="https://www.github.com/overshard/status"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <GitHubIcon />
-            GitHub
-          </a>
-        </div>
-        <div className={styles.project}>
-          <h1 className={styles.projectHeading}>Blog</h1>
-          <p className={styles.projectParagraph}>
-            A self-hostable blog built on Wagtail targeted towards developers
-            with code blocks, syntax highlighting, live search, great SEO, and a
-            clean customizable UI.
-          </p>
-          <pre className={styles.projectCommit}>
-            {JSON.stringify(commits.blog.data, null, 2)}
-          </pre>
-          <a
-            className={styles.projectButton}
-            href="https://www.github.com/overshard/blog"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <GitHubIcon />
-            GitHub
-          </a>
-        </div>
-        <div className={styles.project}>
-          <h1 className={styles.projectHeading}>Timelite</h1>
-          <p className={styles.projectParagraph}>
-            A simple time tracking progressive web app. Uses local storage and
-            service workers to remain accessible offline. Sometimes you just
-            need the essentials when you are busy.
-          </p>
-          <pre className={styles.projectCommit}>
-            {JSON.stringify(commits.timelite.data, null, 2)}
-          </pre>
-          <a
-            className={styles.projectButton}
-            href="https://www.github.com/overshard/timelite"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <GitHubIcon />
-            GitHub
-          </a>
-        </div>
-        <div className={styles.project}>
-          <h1 className={styles.projectHeading}>Timestrap</h1>
-          <p className={styles.projectParagraph}>
-            A full feature time tracking web app. Supports multiple users and
-            exporting reports in multiple formats. Makes use of websockets to
-            maintain state across clients.
-          </p>
-          <pre className={styles.projectCommit}>
-            {JSON.stringify(commits.timestrap.data, null, 2)}
-          </pre>
-          <a
-            className={styles.projectButton}
-            href="https://www.github.com/overshard/timestrap"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <GitHubIcon />
-            GitHub
-          </a>
-        </div>
-        <div className={styles.project}>
-          <h1 className={styles.projectHeading}>isaacbythewood.com</h1>
-          <p className={styles.projectParagraph}>
-            The personal website of Isaac Bythewood. So this site...
-          </p>
-          <pre className={styles.projectCommit}>
-            {JSON.stringify(commits.isaacbythewood.data, null, 2)}
-          </pre>
-          <a
-            className={styles.projectButton}
-            href="https://www.github.com/overshard/isaacbythewood.com"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <GitHubIcon />
-            GitHub
-          </a>
-        </div>
-        <div className={styles.project}>
-          <h1 className={styles.projectHeading}>New Tab</h1>
-          <p className={styles.projectParagraph}>
-            A clean new tab page extension for Chrome.
-          </p>
-          <pre className={styles.projectCommit}>
-            {JSON.stringify(commits.newtab.data, null, 2)}
-          </pre>
-          <a
-            className={styles.projectButton}
-            href="https://www.github.com/overshard/newtab"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <GitHubIcon />
-            GitHub
-          </a>
-        </div>
-        <div className={styles.project}>
-          <h1 className={styles.projectHeading}>dockerfiles</h1>
-          <p className={styles.projectParagraph}>
-            All the Dockerfiles I use for various purposes. More detailed usage
-            instructions are at the top of each Dockerfile.
-          </p>
-          <pre className={styles.projectCommit}>
-            {JSON.stringify(commits.dockerfiles.data, null, 2)}
-          </pre>
-          <a
-            className={styles.projectButton}
-            href="https://www.github.com/overshard/dockerfiles"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <GitHubIcon />
-            GitHub
-          </a>
-        </div>
-        <div className={styles.project}>
-          <h1 className={styles.projectHeading}>alpinefiles</h1>
-          <p className={styles.projectParagraph}>
-            Some of the files that I use on my Alpine Linux servers.
-          </p>
-          <pre className={styles.projectCommit}>
-            {JSON.stringify(commits.alpinefiles.data, null, 2)}
-          </pre>
-          <a
-            className={styles.projectButton}
-            href="https://www.github.com/overshard/alpinefiles"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <GitHubIcon />
-            GitHub
-          </a>
-        </div>
-        <div className={styles.project}>
-          <h1 className={styles.projectHeading}>dotfiles</h1>
-          <p className={styles.projectParagraph}>
-            A variety of config files for setting up new systems.
-          </p>
-          <pre className={styles.projectCommit}>
-            {JSON.stringify(commits.dotfiles.data, null, 2)}
-          </pre>
-          <a
-            className={styles.projectButton}
-            href="https://www.github.com/overshard/dotfiles"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <GitHubIcon />
-            GitHub
-          </a>
-        </div>
+            <h2 className={styles.projectHeading}>{project.name}</h2>
+            <div className={styles.tags}>
+              {project.tech.map((tag) => (
+                <span key={tag} className={styles.tag}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <p className={styles.projectParagraph}>{project.description}</p>
+            {commits[project.slug] && (
+              <pre className={styles.projectCommit}>
+                {JSON.stringify(commits[project.slug], null, 2)}
+              </pre>
+            )}
+            <a
+              className={styles.projectButton}
+              href={`https://github.com/overshard/${project.slug}`}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <GitHubIcon />
+              GitHub
+            </a>
+          </div>
+        ))}
       </div>
     </Page>
   );
 };
 
-export async function getServerSideProps() {
-  const { Sequelize } = eval("require('sequelize')");
-
-  const sequelize = new Sequelize("sqlite://db.sqlite3");
-
-  const Commit = sequelize.define("commit", {
-    repo: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-    createdAt: {
-      type: Sequelize.DATE,
-      allowNull: false,
-    },
-    data: {
-      type: Sequelize.JSON,
-      allowNull: false,
-    },
-  });
-
+export async function getStaticProps() {
   const getCommit = async (repo) => {
-    const storedCommit = await Commit.findOne({
-      where: {
-        repo,
-        createdAt: {
-          [Sequelize.Op.gte]: new Date(Date.now() - 24 * 60 * 60 * 1000),
-        },
-      },
-    });
-    if (storedCommit) {
-      return storedCommit;
-    }
-    const commitsFetch = await fetch(
-      `https://api.github.com/repos/overshard/${repo}/commits`
-    );
-    const commits = await commitsFetch.json();
-    if (!commitsFetch.ok) {
-      console.error(
-        `GitHub API fetch failed for ${repo}:`,
-        commitsFetch.status,
-        commits
+    try {
+      const res = await fetch(
+        `https://api.github.com/repos/overshard/${repo}/commits?per_page=1`
       );
+      if (!res.ok) {
+        console.error(`GitHub API failed for ${repo}: ${res.status}`);
+        return null;
+      }
+      const commits = await res.json();
+      if (!Array.isArray(commits) || commits.length === 0) return null;
+      const commit = commits[0];
+      return {
+        sha: commit.sha ? commit.sha.substring(0, 7) : null,
+        message: commit.commit?.message || null,
+        date: commit.commit?.author?.date || null,
+        author: commit.commit?.author?.name || null,
+      };
+    } catch (err) {
+      console.error(`Failed to fetch commits for ${repo}:`, err);
+      return null;
     }
-    let commit = null;
-    if (Array.isArray(commits) && commits.length > 0) {
-      commit = commits[0];
-    }
-    if (!commit) {
-      console.error(`No commit data found for ${repo}. Response:`, commits);
-    }
-    const commitData = {
-      repo: repo,
-      createdAt: new Date(),
-      data: {
-        sha: commit ? commit.sha : null,
-        commit: {
-          message:
-            commit &&
-            commit.commit &&
-            typeof commit.commit.message !== "undefined"
-              ? commit.commit.message
-              : null,
-          date:
-            commit &&
-            commit.commit &&
-            commit.commit.author &&
-            typeof commit.commit.author.date !== "undefined"
-              ? commit.commit.author.date
-              : null,
-        },
-        author: {
-          name:
-            commit &&
-            commit.commit &&
-            commit.commit.author &&
-            typeof commit.commit.author.name !== "undefined"
-              ? commit.commit.author.name
-              : null,
-          email:
-            commit &&
-            commit.commit &&
-            commit.commit.author &&
-            typeof commit.commit.author.email !== "undefined"
-              ? commit.commit.author.email
-              : null,
-        },
-      },
-    };
-
-    await Commit.create(commitData);
-    return commitData;
   };
 
-  const getCommits = async () => {
-    const alpinefiles = await getCommit("alpinefiles");
-    const analytics = await getCommit("analytics");
-    const blog = await getCommit("blog");
-    const dockerfiles = await getCommit("dockerfiles");
-    const dotfiles = await getCommit("dotfiles");
-    const isaacbythewood = await getCommit("isaacbythewood.com");
-    const status = await getCommit("status");
-    const timelite = await getCommit("timelite");
-    const timestrap = await getCommit("timestrap");
-    const newtab = await getCommit("newtab");
+  const results = await Promise.all(
+    PROJECTS.map(async (project) => [
+      project.slug,
+      await getCommit(project.slug),
+    ])
+  );
 
-    return {
-      alpinefiles: alpinefiles,
-      analytics: analytics,
-      blog: blog,
-      dockerfiles: dockerfiles,
-      dotfiles: dotfiles,
-      isaacbythewood: isaacbythewood,
-      status: status,
-      timelite: timelite,
-      timestrap: timestrap,
-      newtab: newtab,
-    };
+  const commits = Object.fromEntries(results);
+
+  return {
+    props: { commits },
+    revalidate: 3600,
   };
-
-  await Commit.sync();
-
-  return getCommits().then((commits) => {
-    return {
-      props: {
-        commits: JSON.parse(JSON.stringify(commits)),
-      },
-    };
-  });
 }
 
 Code.propTypes = {

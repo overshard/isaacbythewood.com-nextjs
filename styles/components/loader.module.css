@@ -26,6 +26,7 @@
   height: 100vh;
   animation: foldUp 1000ms normal forwards;
   animation-delay: var(--delay, 0ms);
+  animation-play-state: var(--play-state, running);
 }
 
 .gridColumn::before {

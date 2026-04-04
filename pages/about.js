@@ -4,20 +4,25 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Page from "../components/page";
 import styles from "@styles/pages/about.module.css";
 
+const INITIAL_WORDS = [
+  "AI Agents",
+  "DevOps",
+  "Full-Stack",
+  "Testing",
+  "Cloud",
+  "Security",
+  "Developer",
+  "Automation",
+  "Architecture",
+];
+
 const About = () => {
-  const [words, setWords] = useState([
-    "DevOps",
-    "Social Media",
-    "SEO",
-    "Cloud",
-    "Security",
-    "HIPAA & PCI",
-    "Developer",
-    "SysAdmin",
-    "Full-Stack",
-  ]);
+  const [words, setWords] = useState(INITIAL_WORDS);
   const wordsRef = useRef(words);
   wordsRef.current = words;
+  const slots = useRef(
+    Object.fromEntries(INITIAL_WORDS.map((word, i) => [word, i]))
+  );
   const wordRefs = useRef(new Map());
   const getWordRef = (key) => {
     if (!wordRefs.current.has(key)) {
@@ -40,9 +45,13 @@ const About = () => {
       }
       const firstWord = wordsRef.current[firstWordIndex];
       const secondWord = wordsRef.current[secondWordIndex];
+      const firstSlot = slots.current[firstWord];
+      const secondSlot = slots.current[secondWord];
+      slots.current[firstWord] = secondSlot;
+      slots.current[secondWord] = firstSlot;
       setWords(
         wordsRef.current.filter((word, index) => {
-          return index != firstWordIndex && index != secondWordIndex;
+          return index !== firstWordIndex && index !== secondWordIndex;
         })
       );
       setTimeout(() => {
@@ -79,7 +88,11 @@ const About = () => {
                 }}
                 nodeRef={nodeRef}
               >
-                <h2 className={styles.word} ref={nodeRef}>
+                <h2
+                  className={styles.word}
+                  ref={nodeRef}
+                  style={{ top: `${slots.current[word] * 11}vh` }}
+                >
                   <span className={styles.wordText}>{word}</span>
                 </h2>
               </CSSTransition>
@@ -88,16 +101,21 @@ const About = () => {
         </TransitionGroup>
       </div>
       <p className={styles.paragraph}>
-        I am a <span className={styles.strong}>senior solutions architect</span>
-        . I enjoy working on everything from linux kernel modules to website
-        front-ends. My first job was{" "}
-        <span className={styles.strong}>modifying kernel modules</span> for
-        Digium Telephony Cards to work on CentOS. I am currently doing a bit of
-        everything — chiefly creating{" "}
-        <span className={styles.strong}>custom software</span> on a variety of
-        platforms, mostly the web. I have done consulting for many companies on
-        SEO, Online Advertising, Social Media, Cloud Services, Security, HIPAA
-        &amp; PCI Compliance, and myriad other topics.
+        I am a{" "}
+        <span className={styles.strong}>senior solutions architect</span>{" "}
+        at Craftmaster Furniture with{" "}
+        <span className={styles.strong}>two decades in tech</span>.{" "}
+        I got my start{" "}
+        <span className={styles.strong}>modifying kernel modules</span>{" "}
+        for Digium Telephony Cards on CentOS and have been building across the{" "}
+        <span className={styles.strong}>full stack</span>{" "}
+        ever since, from DevOps and server infrastructure to{" "}
+        <span className={styles.strong}>highly regulated</span>{" "}
+        healthcare environments, leading teams through tight deadlines and
+        demanding delivery schedules. Today I focus on{" "}
+        <span className={styles.strong}>AI agent workflows</span>,{" "}
+        automated testing infrastructure, and tooling that keeps release cycles
+        fast without sacrificing stability or security.
         <a
           className={styles.resume}
           href="/static/pdfs/resume-isaac-bythewood.pdf"

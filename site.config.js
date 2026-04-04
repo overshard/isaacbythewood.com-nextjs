@@ -1,8 +1,8 @@
 const strings = {
   title: "Isaac Bythewood",
   description:
-    "Isaac Bythewood is a Senior Solutions Architect and Consultant located " +
-    "in Elkin, NC.",
+    "Isaac Bythewood is a Senior Solutions Architect at Craftmaster Furniture " +
+    "located in Elkin, NC.",
 };
 
 const theme = {

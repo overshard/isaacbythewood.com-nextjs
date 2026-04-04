@@ -7,12 +7,14 @@
   }
 }
 
-@keyframes slideStart {
+@keyframes slideUp {
   from {
-    transform: translateX(-100vw);
+    opacity: 0;
+    transform: translateY(30px);
   }
   to {
-    transform: translateX(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -46,7 +48,7 @@
 
 .word {
   opacity: 0.2;
-  font-size: 14vw;
+  font-size: 11vw;
   text-transform: uppercase;
   margin: 0;
   position: absolute;
@@ -83,55 +85,94 @@
   transition-property: opacity, transform;
 }
 
-.description {
-  font-size: 3.5em;
-  font-weight: bolder;
+.hero {
+  position: relative;
+  z-index: 20;
   opacity: 0;
   animation-name: fadeStart;
   animation-duration: 1500ms;
   animation-fill-mode: forwards;
   animation-play-state: paused;
-  position: relative;
-  z-index: 20;
 }
 
-.description::before {
+.hero::before {
   content: "";
   display: block;
-  width: 75px;
-  height: 5px;
-  margin: 0 0 20px 0;
-  background-color: var(--color-blue);
-}
-
-@media (max-width: 767.98px) {
-  .description {
-    font-size: 2em;
-  }
-}
-
-.name {
-  font-size: 2.5em;
-  text-transform: uppercase;
-  padding: 5px;
-  margin: 0 0 2px 0;
-  align-self: flex-start;
+  width: 60px;
+  height: 4px;
+  margin-bottom: 24px;
   background-image: linear-gradient(
     to right,
     var(--color-blue) 0,
     var(--color-purple) 100%
   );
-  transform: translateX(-100vw);
-  animation-name: slideStart;
-  animation-duration: 750ms;
-  animation-fill-mode: forwards;
-  animation-play-state: paused;
-  position: relative;
-  z-index: 20;
+}
+
+.name {
+  margin: 0 0 16px 0;
+  line-height: 0.9;
+  overflow: visible;
+}
+
+.firstName {
+  display: block;
+  font-size: clamp(2.8em, 6.5vw, 5em);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.lastName {
+  display: block;
+  font-size: clamp(2.8em, 6.5vw, 5em);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  background-image: linear-gradient(
+    to right,
+    var(--color-blue) 0,
+    var(--color-purple) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.8));
+}
+
+.role {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: monospace;
+  font-size: 1.5em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.roleTitle {
+  color: white;
+  font-weight: 700;
+}
+
+.roleAt {
+  color: var(--color-blue);
+  font-weight: 400;
+}
+
+.roleCompany {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
 }
 
 @media (max-width: 767.98px) {
-  .name {
-    font-size: 1.5em;
+  .firstName,
+  .lastName {
+    font-size: 10vw;
+  }
+
+  .role {
+    flex-direction: column;
+    gap: 2px;
+    font-size: 0.85em;
   }
 }
