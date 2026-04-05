@@ -172,7 +172,7 @@ const Contact = () => {
               <dd className={styles.contactValue}>
                 <a
                   className={styles.contactLink}
-                  href="https://www.linkedin.com/in/isaac-bythewood/"
+                  href="https://www.linkedin.com/in/ibythewood/"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
