@@ -47,11 +47,11 @@ const PROJECTS = [
     tech: ["Python", "Django"],
   },
   {
-    name: "Blog",
+    name: "blog.bythewood.me",
     slug: "blog.bythewood.me",
     description:
-      "A self-hostable blog built on Wagtail with code blocks, syntax highlighting, live search, and a clean customizable UI.",
-    tech: ["Python", "Wagtail"],
+      "A self-hostable blog built on Flask for developers with code blocks, syntax highlighting, live search, great SEO, and a clean customizable UI.",
+    tech: ["Python", "Flask"],
   },
   {
     name: "Timelite",
