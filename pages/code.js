@@ -48,7 +48,7 @@ const PROJECTS = [
   },
   {
     name: "Blog",
-    slug: "blog",
+    slug: "blog.bythewood.me",
     description:
       "A self-hostable blog built on Wagtail with code blocks, syntax highlighting, live search, and a clean customizable UI.",
     tech: ["Python", "Wagtail"],
