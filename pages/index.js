@@ -85,6 +85,19 @@ const Index = () => {
           <span className={styles.roleAt}>at</span>
           <span className={styles.roleCompany}>Craftmaster Furniture</span>
         </div>
+        <a
+          href="https://darkfurrow.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.notice}
+        >
+          <span className={styles.noticeLabel}>New Project</span>
+          <span className={styles.noticeTitle}>Dark Furrow</span>
+          <span className={styles.noticeDesc}>
+            An artistic almanac blending poetry, visual rhythm, and practical
+            wisdom for home gardeners and farmers.
+          </span>
+        </a>
       </div>
     </Page>
   );

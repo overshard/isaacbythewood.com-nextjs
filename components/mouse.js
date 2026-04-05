@@ -18,6 +18,7 @@ const Mouse = () => {
       isInteractiveRef.current =
         target.tagName === "BUTTON" ||
         target.tagName === "A" ||
+        !!target.closest("a, button") ||
         (target.classList && target.classList.contains("mouse-activate"));
       if (circleRef.current) {
         circleRef.current.classList.toggle(
