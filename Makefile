@@ -1,4 +1,4 @@
-.PHONY: run push
+.PHONY: run push resume
 
 run:
 	yarn start
@@ -6,3 +6,6 @@ run:
 push:
 	git push origin
 	git push server
+
+resume:
+	yarn resume

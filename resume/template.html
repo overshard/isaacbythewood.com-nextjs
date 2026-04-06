@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.35;
+    color: #1a1a1a;
+    width: 816px;
+    height: 1056px;
+    overflow: hidden;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    position: relative;
+    width: 816px;
+    height: 1056px;
+    overflow: hidden;
+  }
+
+  /* Sidebar - right column, absolutely positioned */
+  .sidebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 240px;
+    height: 1056px;
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar .contact {
+    background: #2563eb;
+    padding: 36px 24px 20px 24px;
+  }
+
+  .sidebar .contact .title {
+    font-size: 11pt;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .sidebar .contact .location {
+    font-size: 9pt;
+    margin-bottom: 8px;
+    color: #dbeafe;
+  }
+
+  .sidebar .contact .phone,
+  .sidebar .contact .email {
+    font-size: 9pt;
+    color: #fff;
+  }
+
+  .sidebar .contact .phone {
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .sidebar .contact a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .sidebar-content {
+    padding: 14px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .sidebar h4 {
+    font-size: 9.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #94a3b8;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 3px;
+    margin-bottom: 4px;
+  }
+
+  .sidebar .links a {
+    display: block;
+    font-size: 9pt;
+    color: #93c5fd;
+    text-decoration: none;
+    margin-bottom: 1px;
+  }
+
+  .sidebar .skills-list,
+  .sidebar .tech-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .sidebar .skills-list li {
+    font-size: 9pt;
+    margin-bottom: 1px;
+    color: #cbd5e1;
+  }
+
+  .sidebar .tech-list li {
+    display: inline;
+    font-size: 9pt;
+    color: #cbd5e1;
+  }
+
+  .sidebar .tech-list li:not(:last-child)::after {
+    content: ", ";
+  }
+
+  .sidebar .education-entry {
+    font-size: 9pt;
+    color: #cbd5e1;
+  }
+
+  .sidebar .education-entry .school {
+    font-weight: 700;
+    color: #e2e8f0;
+  }
+
+  /* Main content - left column */
+  .main {
+    margin-right: 240px;
+    padding: 36px 32px 36px 38px;
+    height: 1056px;
+    overflow: hidden;
+  }
+
+  .main h1 {
+    font-size: 26pt;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 5px;
+    color: #111;
+  }
+
+  .main .summary {
+    font-size: 9.5pt;
+    color: #444;
+    margin-bottom: 14px;
+    line-height: 1.4;
+  }
+
+  .main h2 {
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: #2563eb;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #2563eb;
+    padding-bottom: 2px;
+    margin-bottom: 8px;
+    margin-top: 12px;
+  }
+
+  .main h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .main h2 .section-note {
+    font-size: 8.5pt;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    color: #2563eb;
+  }
+
+  .entry {
+    margin-bottom: 8px;
+  }
+
+  .entry h3 {
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 1px;
+  }
+
+  .entry h3 em {
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .entry .meta {
+    font-size: 8.5pt;
+    color: #666;
+    margin-bottom: 3px;
+  }
+
+  .entry ul {
+    padding-left: 16px;
+    margin: 0;
+  }
+
+  .entry li {
+    font-size: 9pt;
+    margin-bottom: 1px;
+    color: #333;
+    line-height: 1.35;
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="main">
+      <h1>{{name}}</h1>
+      <p class="summary">{{summary}}</p>
+      {{body}}
+    </div>
+    <div class="sidebar">
+      <div class="contact">
+        <div class="title">{{title}}</div>
+        <div class="location">{{location}}</div>
+        <div class="phone">{{phone}}</div>
+        <div class="email"><a href="mailto:{{email}}">{{email}}</a></div>
+      </div>
+      <div class="sidebar-content">
+        <div class="links-section">
+          <h4>Links</h4>
+          <div class="links">
+            {{links}}
+          </div>
+        </div>
+        <div class="skills-section">
+          <h4>Skills</h4>
+          <ul class="skills-list">
+            {{skills}}
+          </ul>
+        </div>
+        <div class="tech-section">
+          <h4>Technologies</h4>
+          <ul class="tech-list">
+            {{technologies}}
+          </ul>
+        </div>
+        <div class="education-section">
+          <h4>Education</h4>
+          {{education}}
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
