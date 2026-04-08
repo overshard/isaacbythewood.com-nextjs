@@ -15,10 +15,10 @@ The site lives at https://isaacbythewood.com/.
 - Path alias: `@styles/*` maps to `styles/*` (see `jsconfig.json`).
 - Site-wide theme config (colors, breakpoints, animation timing) lives in
   `site.config.js`.
-- Package manager is yarn. Use `yarn install` with frozen lockfile.
-- `yarn start` runs the dev server on port 8000.
-- `yarn next:build` builds for production.
-- Docker deployment via Alpine-based image. See `Dockerfile` and
+- Package manager is bun. Use `bun install` with frozen lockfile.
+- `bun start` runs the dev server on port 8000.
+- `bun run next:build` builds for production.
+- Docker deployment via `oven/bun:1-alpine` image. See `Dockerfile` and
   `docker-compose.yml`. Port is bound to localhost only.
 - No test framework is configured.
 - No ESLint or Prettier configuration.
@@ -27,7 +27,7 @@ The site lives at https://isaacbythewood.com/.
 
 - Playwright MCP is available for browser testing. Use it to take
   screenshots and verify visual changes after modifying styles,
-  templates, or content. Start the dev server first with `yarn start`.
+  templates, or content. Start the dev server first with `bun start`.
 - Always clean up screenshot files (*.png) after reviewing them. Delete
   them once you have confirmed the result to avoid clutter in the project
   directory.

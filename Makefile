@@ -1,11 +1,17 @@
-.PHONY: run push resume
+.PHONY: install run build push resume
 
 run:
-	yarn start
+	bun start
+
+install:
+	bun install
+
+build:
+	bun run next:build
 
 push:
 	git push origin
 	git push server
 
 resume:
-	yarn resume
+	bun run resume
