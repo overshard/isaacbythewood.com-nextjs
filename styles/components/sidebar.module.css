@@ -25,22 +25,43 @@
 }
 
 .navLogo {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-image: linear-gradient(
-    to right,
-    var(--color-blue) 0,
+    135deg,
+    var(--color-blue) 0%,
     var(--color-purple) 100%
   );
   width: 40px;
   height: 40px;
+  border-radius: 3px;
   z-index: 3;
   margin-left: 10px;
   margin-top: 10px;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.navLogo span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 3px;
+}
+
+.navLogo span::after {
+  content: ">_";
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1;
 }
 
 .navLogo:hover {
-  transform: rotate(15deg) scale(1.1);
+  transform: rotate(12deg) scale(1.08);
+  box-shadow: 0 0 14px rgba(132, 43, 255, 0.3);
 }
 
 @media (max-width: 767.98px) {

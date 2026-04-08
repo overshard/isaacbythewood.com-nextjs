@@ -9,6 +9,8 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta name="theme-color" content={theme.colors.primary} />
+          <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+          <link rel="icon" href="/favicon.ico" />
           <link rel="manifest" href="/manifest.json" />
           <script
             dangerouslySetInnerHTML={{
