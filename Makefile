@@ -1,3 +1,5 @@
+export NEXT_TELEMETRY_DISABLED=1
+
 .PHONY: install run build push resume
 
 run:

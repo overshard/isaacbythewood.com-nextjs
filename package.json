@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "start": "next --port 8000",
-    "next:start": "next start --port ${PORT}",
-    "next:build": "next build",
+    "start": "bun --bun next --port 8000",
+    "next:start": "bun --bun next start --port ${PORT}",
+    "next:build": "bun --bun next build",
     "resume": "bun resume/generate.js"
   },
   "dependencies": {
