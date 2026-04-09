@@ -12,8 +12,7 @@ build:
 	bun run next:build
 
 push:
-	git push origin
-	git push server
+	git remote | xargs -I R git push R master
 
 resume:
 	bun run resume
