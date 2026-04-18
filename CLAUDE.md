@@ -35,11 +35,15 @@ The site lives at https://isaacbythewood.com/.
 ## Project structure
 
 - `pages/` - Next.js pages: index, about, code, art, contact
-- `components/` - React components (menu, sidebar, loader, mouse cursor,
-  canvas animations like constellations, synthwave, particleflow, retrostars)
+- `components/` - React components: menu, sidebar, loader, mouse (custom
+  cursor), page wrapper, grid overlay, and canvas animations
+  (constellations, synthwave, retrostars)
 - `styles/` - CSS Modules organized by components and pages
-- `public/` - Static assets (images, PDFs, manifest, sitemap)
+- `public/` - Static assets (images, PDFs, manifest, sitemap, service worker)
 - `site.config.js` - Theme configuration (colors, breakpoints, timing)
+- `resume/` - Markdown-based resume. `content.md` holds the copy,
+  `template.html` the layout, and `generate.js` (run via `bun run resume`)
+  renders it using `marked` + `gray-matter`.
 
 ## Design philosophy
 
