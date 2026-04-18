@@ -31,6 +31,15 @@ const Loader = () => {
               />
             );
           })}
+        <div
+          className={styles.indicator}
+          data-ready={ready ? "true" : "false"}
+          aria-hidden="true"
+        >
+          <span className={styles.dot} />
+          <span className={styles.dot} />
+          <span className={styles.dot} />
+        </div>
       </div>
     </>
   );
