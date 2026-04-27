@@ -6,6 +6,7 @@ import Image from "next/image";
 import Page from "../components/page";
 import Constellations from "../components/constellations";
 import RetroStars from "../components/retrostars";
+import SlimeMold from "../components/slimemold";
 
 const Art = () => {
   const [lightboxImage, setLightboxImage] = useState(null);
@@ -242,6 +243,34 @@ const Art = () => {
       <a
         className={styles.artItemButton}
         href="https://github.com/overshard/isaacbythewood.com/blob/master/components/retrostars.js"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        See the Code
+      </a>
+      <h2 className={styles.subheading}>
+        <span>002</span> Slime Mold
+      </h2>
+      <p className={styles.paragraph}>
+        Thousands of agents wander a dark field, each leaving a faint chemical
+        trail and steering toward the strongest scent ahead. From three simple
+        rules — sense, turn, deposit — emerge living networks reminiscent of
+        Physarum slime molds, neurons, and the cosmic web. The pattern never
+        settles; trails decay as fast as they form.
+      </p>
+      <div className={styles.artContainer}>
+        <SlimeMold options={{ isActive: activeArt === "slimemold" }} />
+        <button
+          className={styles.playButton}
+          onClick={() => handleArtToggle("slimemold")}
+          data-active={activeArt === "slimemold"}
+        >
+          {activeArt === "slimemold" ? "⏸" : "▶"}
+        </button>
+      </div>
+      <a
+        className={styles.artItemButton}
+        href="https://github.com/overshard/isaacbythewood.com/blob/master/components/slimemold.js"
         rel="noopener noreferrer"
         target="_blank"
       >
