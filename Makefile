@@ -1,6 +1,6 @@
 export NEXT_TELEMETRY_DISABLED=1
 
-.PHONY: install run build push resume
+.PHONY: install run build push resume clean
 
 run:
 	bun start
@@ -16,3 +16,6 @@ push:
 
 resume:
 	bun run resume
+
+clean:
+	rm -rf .next node_modules
