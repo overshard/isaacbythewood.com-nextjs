@@ -77,7 +77,7 @@ const Menu = () => {
                   </a>
                   <a
                     className={styles.topLink}
-                    href="https://status.bythewood.me/properties/87097ef2-5643-4999-917e-72b172dd9e19/"
+                    href="https://status.bythewood.me/a40ff31d-18b0-49c3-9a36-deb02c909204"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -85,7 +85,7 @@ const Menu = () => {
                   </a>
                   <a
                     className={styles.topLink}
-                    href="https://analytics.bythewood.me/properties/30e69c06-9beb-4283-8919-8c7a686ab013/"
+                    href="https://analytics.bythewood.me/30e69c06-9beb-4283-8919-8c7a686ab013"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
