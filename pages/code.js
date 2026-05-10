@@ -65,7 +65,7 @@ const PROJECTS = [
     name: "isaacbythewood.com",
     slug: "isaacbythewood.com",
     description: "The personal website you are looking at right now.",
-    tech: ["Next.js", "React", "CSS"],
+    tech: ["Next.js", "JavaScript"],
   },
 ];
 
