@@ -19,7 +19,9 @@ The site lives at https://isaacbythewood.com/.
 - `bun start` runs the dev server on port 8000.
 - `bun run next:build` builds for production.
 - Docker deployment via `oven/bun:1-alpine` image. See `Dockerfile` and
-  `docker-compose.yml`. Port is bound to localhost only.
+  `docker-compose.yml`. The container publishes no host ports; Caddy
+  reverse-proxies to it by container name on the shared `bythewood-edge`
+  Docker network.
 - No test framework is configured.
 - No ESLint or Prettier configuration.
 
