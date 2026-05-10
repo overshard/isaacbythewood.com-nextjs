@@ -11,4 +11,6 @@ COPY . .
 
 RUN bun run next:build
 
+EXPOSE 8000
+
 USER bun
