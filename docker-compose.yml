@@ -1,6 +1,6 @@
 services:
   app:
-    container_name: isaacbythewood.com
+    container_name: isaacbythewood
     build: .
     command: bun run next:start
     restart: unless-stopped
