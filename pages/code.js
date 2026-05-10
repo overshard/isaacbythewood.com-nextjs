@@ -31,34 +31,35 @@ const PROJECTS = [
     slug: "darkfurrow.com",
     description:
       "A living almanac of seasons, soil, and the quiet knowledge that used to be common.",
-    tech: ["Python", "Flask"],
+    tech: ["Rust", "Axum"],
   },
   {
     name: "Analytics",
     slug: "analytics",
     description:
       "A self-hostable analytics service with a straightforward API to track events from any source.",
-    tech: ["Python", "Django", "API"],
+    tech: ["Rust", "Axum", "SQLite"],
   },
   {
     name: "Status",
     slug: "status",
-    description: "A self-hosted status monitoring service.",
-    tech: ["Python", "Django"],
+    description:
+      "A self-hosted uptime monitor and status page builder, with Lighthouse audits and PDF reports baked in.",
+    tech: ["Rust", "Axum", "SQLite"],
   },
   {
     name: "blog.bythewood.me",
     slug: "blog.bythewood.me",
     description:
-      "A self-hostable blog built on Flask for developers with code blocks, syntax highlighting, live search, great SEO, and a clean customizable UI.",
-    tech: ["Python", "Flask"],
+      "A self-hostable markdown blog for developers, with code blocks, syntax highlighting, live search, great SEO, and a clean customizable UI.",
+    tech: ["Rust", "Axum"],
   },
   {
     name: "Timelite",
     slug: "timelite",
     description:
-      "A simple time tracking progressive web app. Uses local storage and service workers to remain accessible offline.",
-    tech: ["JavaScript", "PWA"],
+      "A simple time tracker that keeps everything local in your browser. No accounts, no sync, no server-side state.",
+    tech: ["Next.js", "JavaScript"],
   },
   {
     name: "isaacbythewood.com",
