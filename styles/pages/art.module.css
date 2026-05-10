@@ -167,6 +167,13 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
+.cardImage {
+  display: block;
+  background-color: var(--color-primary);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
 .cardImage img {
   object-fit: cover;
   object-position: center;
@@ -174,6 +181,12 @@
   height: auto;
   aspect-ratio: 16 / 9;
   display: block;
+  opacity: 0;
+  transition: opacity 400ms ease-out;
+}
+
+.cardImage img.imgLoaded {
+  opacity: 1;
 }
 
 .artItemHeader {

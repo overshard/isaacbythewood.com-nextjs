@@ -8,6 +8,38 @@ import Constellations from "../components/constellations";
 import RetroStars from "../components/retrostars";
 import SlimeMold from "../components/slimemold";
 
+const ArtCard = ({ src, alt, title, number, priority, onClick }) => {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <div className={styles.artItem} onClick={onClick}>
+      <span className={styles.cardImage}>
+        <Image
+          src={src}
+          alt={alt}
+          width={640}
+          height={360}
+          className={`mouse-activate ${loaded ? styles.imgLoaded : ""}`}
+          priority={priority}
+          onLoad={() => setLoaded(true)}
+        />
+      </span>
+      <h2 className={styles.artItemHeader}>
+        {title} <span>{number}</span>
+      </h2>
+    </div>
+  );
+};
+
+const ACRYLIC_POURS = [
+  { number: "006", title: "Molten Copper", priority: true },
+  { number: "005", title: "Nebulas in Triangulum", priority: true },
+  { number: "004", title: "Metal on Mars", priority: true },
+  { number: "003", title: "Water on Jupiter", priority: true },
+  { number: "002", title: "Cracks in Clay", priority: false },
+  { number: "001", title: "Reef Drop-off", priority: false },
+  { number: "000", title: "Blood in Waves", priority: false },
+];
+
 const Art = () => {
   const [lightboxImage, setLightboxImage] = useState(null);
   const [lightboxLoaded, setLightboxLoaded] = useState(false);
@@ -46,143 +78,20 @@ const Art = () => {
         of control as it is about technique.
       </p>
       <div className={styles.artGrid}>
-        <div
-          className={styles.artItem}
-          onClick={() =>
-            openLightbox("/static/images/art/acrylic-pours/006.webp")
-          }
-        >
-          <span className={styles.cardImage}>
-            <Image
-              src="/static/images/art/acrylic-pours/006.webp"
-              alt="Molten Copper"
-              width={640}
-              height={360}
-              className="mouse-activate"
-              priority={true}
+        {ACRYLIC_POURS.map(({ number, title, priority }) => {
+          const src = `/static/images/art/acrylic-pours/${number}.webp`;
+          return (
+            <ArtCard
+              key={number}
+              src={src}
+              alt={title}
+              title={title}
+              number={number}
+              priority={priority}
+              onClick={() => openLightbox(src)}
             />
-          </span>
-          <h2 className={styles.artItemHeader}>
-            Molten Copper <span>006</span>
-          </h2>
-        </div>
-        <div
-          className={styles.artItem}
-          onClick={() =>
-            openLightbox("/static/images/art/acrylic-pours/005.webp")
-          }
-        >
-          <span className={styles.cardImage}>
-            <Image
-              src="/static/images/art/acrylic-pours/005.webp"
-              alt="Nebulas in Triangulum"
-              width={640}
-              height={360}
-              className="mouse-activate"
-              priority={true}
-            />
-          </span>
-          <h2 className={styles.artItemHeader}>
-            Nebulas in Triangulum <span>005</span>
-          </h2>
-        </div>
-        <div
-          className={styles.artItem}
-          onClick={() =>
-            openLightbox("/static/images/art/acrylic-pours/004.webp")
-          }
-        >
-          <span className={styles.cardImage}>
-            <Image
-              src="/static/images/art/acrylic-pours/004.webp"
-              alt="Metal on Mars"
-              width={640}
-              height={360}
-              className="mouse-activate"
-              priority={true}
-            />
-          </span>
-          <h2 className={styles.artItemHeader}>
-            Metal on Mars <span>004</span>
-          </h2>
-        </div>
-        <div
-          className={styles.artItem}
-          onClick={() =>
-            openLightbox("/static/images/art/acrylic-pours/003.webp")
-          }
-        >
-          <span className={styles.cardImage}>
-            <Image
-              src="/static/images/art/acrylic-pours/003.webp"
-              alt="Water on Jupiter"
-              width={640}
-              height={360}
-              className="mouse-activate"
-              priority={true}
-            />
-          </span>
-          <h2 className={styles.artItemHeader}>
-            Water on Jupiter <span>003</span>
-          </h2>
-        </div>
-        <div
-          className={styles.artItem}
-          onClick={() =>
-            openLightbox("/static/images/art/acrylic-pours/002.webp")
-          }
-        >
-          <span className={styles.cardImage}>
-            <Image
-              src="/static/images/art/acrylic-pours/002.webp"
-              alt="Cracks in Clay"
-              width={640}
-              height={360}
-              className="mouse-activate"
-            />
-          </span>
-          <h2 className={styles.artItemHeader}>
-            Cracks in Clay <span>002</span>
-          </h2>
-        </div>
-        <div
-          className={styles.artItem}
-          onClick={() =>
-            openLightbox("/static/images/art/acrylic-pours/001.webp")
-          }
-        >
-          <span className={styles.cardImage}>
-            <Image
-              src="/static/images/art/acrylic-pours/001.webp"
-              alt="Reef Drop-off"
-              width={640}
-              height={360}
-              className="mouse-activate"
-            />
-          </span>
-          <h2 className={styles.artItemHeader}>
-            Reef Drop-off <span>001</span>
-          </h2>
-        </div>
-        <div
-          className={styles.artItem}
-          onClick={() =>
-            openLightbox("/static/images/art/acrylic-pours/000.webp")
-          }
-        >
-          <span className={styles.cardImage}>
-            <Image
-              src="/static/images/art/acrylic-pours/000.webp"
-              alt="Blood in Waves"
-              width={640}
-              height={360}
-              className="mouse-activate"
-            />
-          </span>
-          <h2 className={styles.artItemHeader}>
-            Blood in Waves <span>000</span>
-          </h2>
-        </div>
+          );
+        })}
       </div>
       <h1 className={styles.heading}>Emergent Generative Art</h1>
       <p className={styles.paragraph}>
