@@ -34,6 +34,13 @@ const PROJECTS = [
     tech: ["Rust", "Axum"],
   },
   {
+    name: "Heartwood",
+    slug: "heartwood",
+    description:
+      "A minimal self-hosted git browser. Renders bare repos as a website with commits, diffs, syntax-highlighted blobs, and atom feeds, plus clone over HTTPS.",
+    tech: ["Rust", "Axum"],
+  },
+  {
     name: "Analytics",
     slug: "analytics",
     description:
