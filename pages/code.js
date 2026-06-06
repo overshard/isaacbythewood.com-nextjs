@@ -55,6 +55,13 @@ const PROJECTS = [
     tech: ["Rust", "Axum", "SQLite"],
   },
   {
+    name: "Finance",
+    slug: "finance",
+    description:
+      "A self-hosted market watcher for stocks, ETFs, indexes, and futures, with live charts, key stats, fundamentals, and SEC filings.",
+    tech: ["Rust", "Axum", "SQLite"],
+  },
+  {
     name: "blog.bythewood.me",
     slug: "blog.bythewood.me",
     description:
