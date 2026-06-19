@@ -12,6 +12,20 @@ Elkin, NC.
 
 https://isaacbythewood.com/
 
+It is a visually rich, animation-heavy portfolio. The site leans into motion: a
+custom cursor, a page transition loader, a background grid overlay, and four
+full-canvas background animations (constellations, synthwave, retrostars,
+slimemold). Pages cover an intro, about, code, art, and contact.
+
+## Tech stack
+
+- Next.js 16 and React 19 (Pages Router), plain JavaScript.
+- Bun as both the runtime and the package manager.
+- CSS Modules for styling, with shared theme tokens (colors, breakpoints,
+  animation timings) centralized in `site.config.js`.
+- react-transition-group for page transitions, sharp for image processing.
+- The resume is generated from Markdown using marked and gray-matter.
+
 ## Clone
 
 For any possible way of running this website yourself you'll need a copy of the
@@ -30,6 +44,13 @@ You will need to have [bun](https://bun.sh/) installed. After that you can run:
 
 This will spin up isaacbythewood.com to run on port 8000 which you can access
 via a browser at `http://localhost:8000`.
+
+## Resume
+
+The resume lives in `resume/`: `content.md` holds the copy and `template.html`
+the layout. After editing the content, regenerate it with:
+
+    bun run resume
 
 ## Production
 
