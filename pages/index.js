@@ -46,6 +46,12 @@ const Index = () => {
             setImageLoaded(true);
             window.dispatchEvent(new Event("loaderReady"));
           }}
+          onError={() => {
+            // A failed hero load must still release the loader overlay, or
+            // the page stays stuck behind it forever.
+            setImageLoaded(true);
+            window.dispatchEvent(new Event("loaderReady"));
+          }}
         />
       </div>
       <TransitionGroup component="div" className={styles.words}>

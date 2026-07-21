@@ -1,16 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "@styles/components/canvas.module.css";
 import PropTypes from "prop-types";
 
 const RetroStars = ({ options }) => {
   const isActive = options.isActive !== undefined ? options.isActive : true;
   const canvas = useRef(null);
-  const [mousePosition, setMousePosition] = useState({ x: 640, y: 400 });
-  const mousePositionRef = useRef(mousePosition);
-  mousePositionRef.current = mousePosition;
-  const [starSize, setStarSize] = useState(0);
-  const starSizeRef = useRef(starSize);
-  starSizeRef.current = starSize;
+  // Refs, not state: nothing rendered by React depends on these (the canvas
+  // loop reads them directly), and state would re-render the component on
+  // every mousemove and every 500ms twinkle tick.
+  const mousePositionRef = useRef({ x: 640, y: 400 });
+  const starSizeRef = useRef(0);
 
   const offsetStar = (maxOffset) => {
     return {
@@ -25,10 +24,10 @@ const RetroStars = ({ options }) => {
 
   useEffect(() => {
     const mouseMove = (evt) => {
-      setMousePosition({
+      mousePositionRef.current = {
         x: evt.clientX,
         y: evt.clientY,
-      });
+      };
     };
 
     window.addEventListener("mousemove", mouseMove);
@@ -59,12 +58,7 @@ const RetroStars = ({ options }) => {
     let starSizeInterval = null;
     if (isActive) {
       starSizeInterval = setInterval(() => {
-        const newStarSize = starSizeRef.current + 1;
-        if (newStarSize < 4) {
-          setStarSize(newStarSize);
-        } else {
-          setStarSize(0);
-        }
+        starSizeRef.current = (starSizeRef.current + 1) % 4;
       }, 500);
     }
 

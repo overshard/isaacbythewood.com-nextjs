@@ -86,7 +86,7 @@ const Synthwave = () => {
         ctx.lineTo(start, end);
         grd = ctx.createLinearGradient(0, cvs.height, 0, end);
         grd.addColorStop(0, `rgba(221, 41, 156, 1)`);
-        grd.addColorStop(1, `rgba(221, 41, 156, 0`);
+        grd.addColorStop(1, `rgba(221, 41, 156, 0)`);
         ctx.strokeStyle = grd;
         ctx.stroke();
         offset = offset * quotient;

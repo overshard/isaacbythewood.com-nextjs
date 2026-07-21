@@ -15,8 +15,8 @@ class MyDocument extends Document {
           <script
             dangerouslySetInnerHTML={{
               __html: `(function(m,e,t,r,i,c,s){m.collectorQueue = m.collectorQueue || r;
-            m.collectorServer = c; m.collectorId = s; collectorScript = e.createElement(t);
-            collectorScript.src = c + i; e.head.appendChild(m.collectorScript);
+            m.collectorServer = c; m.collectorId = s; m.collectorScript = e.createElement(t);
+            m.collectorScript.src = c + i; e.head.appendChild(m.collectorScript);
             })(window,document,'script',[],'/static/collector.js',
             'https://analytics.bythewood.me','30e69c06-9beb-4283-8919-8c7a686ab013');`,
             }}
