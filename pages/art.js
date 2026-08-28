@@ -123,7 +123,7 @@ const Art = () => {
       </div>
       <a
         className={styles.artItemButton}
-        href="https://github.com/overshard/isaacbythewood.com/blob/master/components/constellations.js"
+        href="https://github.com/overshard/isaacbythewood.com-nextjs/blob/master/components/constellations.js"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -151,7 +151,7 @@ const Art = () => {
       </div>
       <a
         className={styles.artItemButton}
-        href="https://github.com/overshard/isaacbythewood.com/blob/master/components/retrostars.js"
+        href="https://github.com/overshard/isaacbythewood.com-nextjs/blob/master/components/retrostars.js"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -179,7 +179,7 @@ const Art = () => {
       </div>
       <a
         className={styles.artItemButton}
-        href="https://github.com/overshard/isaacbythewood.com/blob/master/components/slimemold.js"
+        href="https://github.com/overshard/isaacbythewood.com-nextjs/blob/master/components/slimemold.js"
         rel="noopener noreferrer"
         target="_blank"
       >

@@ -1,11 +1,18 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/overshard/isaacbythewood.com/master/public/static/images/favicon.png"
+    <img src="https://raw.githubusercontent.com/overshard/isaacbythewood.com-nextjs/master/public/static/images/favicon.png"
          width="200"
          height="200"
          alt="isaacbythewood.com Favicon" />
 </p>
 
 # Isaac Bythewood
+
+> **Archived and no longer maintained.**
+> This is the Next.js implementation, renamed from `isaacbythewood.com` to
+> `isaacbythewood.com-nextjs` and kept as a read-only snapshot. It receives no further
+> updates, fixes, or security patches.
+> The site is still online; it now runs on a Go rebuild that is not published.
+> Use this as a reference, not as running software.
 
 The personal website of Isaac Bythewood, a Senior Solutions Architect located in
 Elkin, NC.
@@ -31,7 +38,7 @@ slimemold). Pages cover an intro, about, code, art, and contact.
 For any possible way of running this website yourself you'll need a copy of the
 repo:
 
-    git clone https://github.com/overshard/isaacbythewood.com.git
+    git clone https://github.com/overshard/isaacbythewood.com-nextjs.git
 
 After you get the repo it's up to you how you want to use it.
 
