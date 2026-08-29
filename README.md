@@ -1,3 +1,5 @@
+> **Archived.** This project is no longer in use and no longer maintained.
+
 <p align="center">
     <img src="https://raw.githubusercontent.com/overshard/isaacbythewood.com-nextjs/master/public/static/images/favicon.png"
          width="200"
@@ -6,13 +8,6 @@
 </p>
 
 # Isaac Bythewood
-
-> **Archived and no longer maintained.**
-> This is the Next.js implementation, renamed from `isaacbythewood.com` to
-> `isaacbythewood.com-nextjs` and kept as a read-only snapshot. It receives no further
-> updates, fixes, or security patches.
-> The site is still online; it now runs on a Go rebuild that is not published.
-> Use this as a reference, not as running software.
 
 The personal website of Isaac Bythewood, a Senior Solutions Architect located in
 Elkin, NC.
