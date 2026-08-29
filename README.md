@@ -1,4 +1,4 @@
-> **Archived.** This project is no longer in use and no longer maintained.
+> **Archived.** This project is no longer in use and no longer maintained. Last updated July 2026.
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/overshard/isaacbythewood.com-nextjs/master/public/static/images/favicon.png"
